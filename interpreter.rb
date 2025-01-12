@@ -27,10 +27,6 @@ class Interpreter < Scheme
         @environment = self.class.built_ins
     end
 
-    def parse(program)
-        syntax_tree(tokenize(program))
-    end
-
     def evaluate(expression, environment=@environment)
         if expression.is_a? Numeric
             expression

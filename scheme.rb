@@ -1,4 +1,8 @@
 class Scheme
+    def parse(program)
+        syntax_tree(tokenize(program))
+    end
+
     def tokenize(program)
         tokens = []
 
