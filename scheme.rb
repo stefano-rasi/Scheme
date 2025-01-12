@@ -1,16 +1,4 @@
 class Scheme
-    def atom(token)
-        if /^"/.match?(token)
-            token[1..-2]
-        elsif /\.d+/.match?(token)
-            token.to_f
-        elsif /\d+/.match?(token)
-            token.to_i
-        else
-            token.to_sym
-        end
-    end
-
     def tokenize(program)
         tokens = []
 
@@ -39,6 +27,18 @@ class Scheme
         end
 
         tokens
+    end
+
+    def atom(token)
+        if /^"/.match?(token)
+            token[1..-2]
+        elsif /\.d+/.match?(token)
+            token.to_f
+        elsif /\d+/.match?(token)
+            token.to_i
+        else
+            token.to_sym
+        end
     end
 
     def syntax_tree(tokens)
